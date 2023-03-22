@@ -27,6 +27,6 @@ public class Controller {
     }
     @FXML
     private void setSubmit(ActionEvent actionEvent) throws SQLException {
-        ConnectDB.test();
+        ConnectDB.connect();
     }
 }
