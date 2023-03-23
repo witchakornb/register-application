@@ -27,28 +27,28 @@ public class Controller implements Initializable {
     @FXML
     private Button submit;
     @FXML
-    private TableColumn<User, String> address;
+    private TableColumn<User, String> address = new TableColumn<>();
 
     @FXML
-    private TableColumn<User, String> department;
+    private TableColumn<User, String> department = new TableColumn<>();
 
     @FXML
-    private TableColumn<User, String> firstname;
+    private TableColumn<User, String> firstname = new TableColumn<>();
 
     @FXML
-    private TableColumn<User, String> gender;
+    private TableColumn<User, String> gender = new TableColumn<>();
 
     @FXML
-    private TableColumn<User, String> lastname;
+    private TableColumn<User, String> lastname = new TableColumn<>();
 
     @FXML
-    private TableColumn<User, String> phone;
+    private TableColumn<User, String> phone = new TableColumn<>();
 
     @FXML
-    private TableColumn<User, String> role;
+    private TableColumn<User, String> role = new TableColumn<>();
 
     @FXML
-    private TableColumn<User, String> stu_id;
+    private TableColumn<User, String> stu_id = new TableColumn<>();
 
     @FXML
     private TableView<User> tableView;
@@ -75,8 +75,8 @@ public class Controller implements Initializable {
         stage.setScene(scene);
         stage.show();
         listM = connectDB.getdata();
-        System.out.println(listM);
-        tableView.setItems(listM);
+//        System.out.println(listM);
+//        tableView.setItems(listM);
     }
 
     @Override
