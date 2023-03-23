@@ -1,7 +1,8 @@
 package com.reg.register;
 
 import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
+import javafx.collections.ObservableArray;
+import javafx.collections.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -53,7 +54,7 @@ public class Controller implements Initializable {
     @FXML
     private TableView<User> tableView;
 
-    ObservableList<User> listM;
+    ObservableList<User> listM = FXCollections.observableArrayList();
     @FXML
     protected void onHelloButtonClick() {
         welcomeText.setText("Welcome to JavaFX Application!");
@@ -76,7 +77,7 @@ public class Controller implements Initializable {
         stage.show();
         listM = connectDB.getdata();
 //        System.out.println(listM);
-//        tableView.setItems(listM);
+        tableView.setItems(listM);
     }
 
     @Override
