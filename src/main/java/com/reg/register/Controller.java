@@ -8,10 +8,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
@@ -24,9 +21,16 @@ public class Controller{
     @FXML
     private Label welcomeText;
     @FXML
+    private TextField username;
+    @FXML
+    private PasswordField password;
+    @FXML
     private Button cancel;
     @FXML
     private Button submit;
+    FXMLLoader loader;
+    Scene scene;
+    Stage stage = new Stage();
 
     ObservableList<User> listM = FXCollections.observableArrayList();
     @FXML
@@ -40,20 +44,35 @@ public class Controller{
     }
     @FXML
     private void setSubmit(ActionEvent actionEvent) throws IOException{
+        boolean c = true;
         ConnectDB connectDB = new ConnectDB();
         var user = connectDB.getdata();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("table-view.fxml"));
-        Scene scene = new Scene(loader.load(), 1280, 720);
-        Stage stage = new Stage();
-        stage.setTitle("register application");
-//        stage.initStyle(StageStyle.UNDECORATED);
-        stage.setScene(scene);
-        stage.show();
-
-        AdminController adminController = loader.getController();
-        System.out.println(adminController);
-        adminController.setData(user);
-        Stage stage2 = (Stage) submit.getScene().getWindow();
-        stage2.close();
+        for (var e:
+             user) {
+            if (username.getText().equals(e.getStu_id()) && password.getText().equals(e.getPassword())){
+                c = false;
+                if (e.getRole().equals("Admin")){
+                    loader = new FXMLLoader(getClass().getResource("table-view.fxml"));
+                    scene = new Scene(loader.load(), 1280, 720);
+                    stage.setTitle("register application");
+                    stage.setScene(scene);
+                    stage.show();
+                    AdminController adminController = loader.getController();
+                    adminController.setData(user);
+                }else {
+                    loader = new FXMLLoader(getClass().getResource("course-enrollment.fxml"));
+                    scene = new Scene(loader.load(), 1280, 720);
+                    stage.setTitle("register application");
+                    stage.setScene(scene);
+                    stage.show();
+                }
+            }
+        }
+        if (c){
+            welcomeText.setText("invalid username or password");
+        }else {
+            Stage stage2 = (Stage) submit.getScene().getWindow();
+            stage2.close();
+        }
     }
 }

@@ -30,7 +30,7 @@
                   <Font name="Arial Bold" size="24.0" />
                </font>
             </Label>
-            <Label alignment="CENTER" layoutX="397.0" layoutY="110.0" prefHeight="20.0" prefWidth="200.0" text="Label">
+            <Label fx:id="welcomeText" alignment="CENTER" layoutX="290.0" layoutY="110.0" prefHeight="20.0" prefWidth="400.0" text=" ">
                <font>
                   <Font name="Arial" size="18.0" />
                </font>
@@ -45,7 +45,7 @@
                   <Font name="Arial" size="24.0" />
                </font>
             </Label>
-            <TextField layoutX="300.0" layoutY="200.0" prefHeight="30.0" prefWidth="400.0" promptText="Enter Username" />
+            <TextField fx:id="username" layoutX="300.0" layoutY="200.0" prefHeight="30.0" prefWidth="400.0" promptText="Enter Username" />
             <Button fx:id="submit" alignment="CENTER" layoutX="300.0" layoutY="450.0" mnemonicParsing="false" onAction="#setSubmit" prefHeight="50.0" prefWidth="150.0" style="-fx-background-color: #0000FF;" text="Summit" textFill="WHITE">
                <font>
                   <Font name="Arial" size="24.0" />
@@ -56,7 +56,7 @@
                   <Font name="Arial" size="24.0" />
                </font>
             </Button>
-            <PasswordField layoutX="300.0" layoutY="300.0" prefHeight="30.0" prefWidth="400.0" promptText="Enter Password" />
+            <PasswordField fx:id="password" layoutX="300.0" layoutY="300.0" prefHeight="30.0" prefWidth="400.0" promptText="Enter Password" />
          </children></AnchorPane>
    </center>
 </BorderPane>
