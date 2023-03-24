@@ -38,7 +38,7 @@ public class ConnectDB {
             String sql = "SELECT * FROM user";
             ResultSet rs = statement.executeQuery(sql);
             while (rs.next()){
-                list.add(new User(rs.getString("student-id"), rs.getString("firstname"), rs.getString("lastname"), rs.getString("gender"), rs.getString("address"), rs.getString("phone"), rs.getString("department"), rs.getString("role")));
+                list.add(new User(rs.getString("student-id"), rs.getString("firstname"), rs.getString("lastname"), rs.getString("password"), rs.getString("gender"), rs.getString("address"), rs.getString("phone"), rs.getString("department"), rs.getString("role")));
             }
         }catch (Exception e){
             e.printStackTrace();

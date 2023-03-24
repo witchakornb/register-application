@@ -75,13 +75,15 @@ public class Controller implements Initializable {
         stage.setTitle("register application");
         stage.setScene(scene);
         stage.show();
-        listM = connectDB.getdata();
+//        listM = connectDB.getdata();
 //        System.out.println(listM);
-        tableView.setItems(listM);
+//        tableView.setItems(listM);
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        ConnectDB connectDB = new ConnectDB();
+        listM = connectDB.getdata();
         stu_id.setCellValueFactory(new PropertyValueFactory<>("stu_id"));
         firstname.setCellValueFactory(new PropertyValueFactory<>("firstname"));
         lastname.setCellValueFactory(new PropertyValueFactory<>("lastname"));
@@ -90,6 +92,6 @@ public class Controller implements Initializable {
         phone.setCellValueFactory(new PropertyValueFactory<>("phone"));
         department.setCellValueFactory(new PropertyValueFactory<>("department"));
         role.setCellValueFactory(new PropertyValueFactory<>("role"));
-
+        tableView.setItems(listM);
     }
 }

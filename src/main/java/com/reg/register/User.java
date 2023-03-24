@@ -6,21 +6,35 @@ public class User {
     private SimpleStringProperty stu_id;
     private SimpleStringProperty firstname;
     private SimpleStringProperty lastname;
+    private SimpleStringProperty password;
     private SimpleStringProperty gender;
     private SimpleStringProperty address;
     private SimpleStringProperty phone;
     private SimpleStringProperty department;
     private SimpleStringProperty role;
 
-    public User(String stu_id, String firstname, String lastname, String gender, String address, String phone, String department, String role) {
+    public User(String stu_id, String firstname, String lastname, String password, String gender, String address, String phone, String department, String role) {
         this.stu_id = new SimpleStringProperty(stu_id);
         this.firstname = new SimpleStringProperty(firstname);
         this.lastname = new SimpleStringProperty(lastname);
+        this.password = new SimpleStringProperty(password);
         this.gender = new SimpleStringProperty(gender);
         this.address = new SimpleStringProperty(address);
         this.phone = new SimpleStringProperty(phone);
         this.department = new SimpleStringProperty(department);
         this.role = new SimpleStringProperty(role);
+    }
+
+    public String getPassword() {
+        return password.get();
+    }
+
+    public SimpleStringProperty passwordProperty() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password.set(password);
     }
 
     public String getStu_id() {
