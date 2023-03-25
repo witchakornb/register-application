@@ -60,11 +60,13 @@ public class Controller{
                     AdminController adminController = loader.getController();
                     adminController.setData(user);
                 }else {
-                    loader = new FXMLLoader(getClass().getResource("course-enrollment.fxml"));
+                    loader = new FXMLLoader(getClass().getResource("course.fxml"));
                     scene = new Scene(loader.load(), 1280, 720);
                     stage.setTitle("register application");
                     stage.setScene(scene);
                     stage.show();
+                    UserConntroller userConntroller = loader.getController();
+                    userConntroller.setDate(e);
                 }
             }
         }
