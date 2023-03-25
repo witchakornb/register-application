@@ -14,7 +14,7 @@ public class ConnectDB {
     private final String password = "123456789";
     private Connection connection;
     private Statement statement;
-    private List<User> dataUser = new ArrayList<>();
+
 
     public ConnectDB() {
         this.connection = null;
@@ -32,7 +32,7 @@ public class ConnectDB {
             e.printStackTrace();
         }
     }
-    public ObservableList<User> getdata(){
+    public ObservableList<User> getDataUser(){
         ObservableList<User> list = FXCollections.observableArrayList();
         try{
             String sql = "SELECT * FROM user";
@@ -45,5 +45,17 @@ public class ConnectDB {
         }
         return list;
     }
-
+    public ObservableList<Course> getDataCourse(){
+        ObservableList<Course> courses = FXCollections.observableArrayList();
+        try {
+            String sql = "SELECT * FROM course";
+            ResultSet resultSet = statement.executeQuery(sql);
+            while (resultSet.next()){
+                courses.add(new Course(resultSet.getString("C_ID"), resultSet.getString("ID-course"), resultSet.getString("Thai-name"), resultSet.getString("Eng-name"), resultSet.getString("belong")));
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return courses;
+    }
 }

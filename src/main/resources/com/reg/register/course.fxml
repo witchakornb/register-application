@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.reg.register.UserConntroller">
+   <left>
+      <VBox prefHeight="200.0" prefWidth="300.0" style="-fx-background-color: #5dade2;" BorderPane.alignment="CENTER">
+         <children>
+            <Separator prefHeight="20.0" prefWidth="200.0" />
+            <Button fx:id="back" onAction="#onBackButton" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" prefHeight="30.0" prefWidth="300.0" text="Back">
+               <graphic>
+                  <ImageView fitHeight="30.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../image/left-arrow.png" />
+                     </image></ImageView>
+               </graphic>
+               <font>
+                  <Font name="Arial" size="24.0" />
+               </font>
+            </Button>
+            <Separator prefHeight="20.0" prefWidth="200.0" />
+            <Button mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" prefHeight="30.0" prefWidth="300.0" text="การลงทะเบียน">
+               <font>
+                  <Font name="Arial" size="24.0" />
+               </font>
+            </Button>
+         </children>
+      </VBox>
+   </left>
+   <center>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <Separator prefHeight="30.0" />
+            <HBox prefHeight="50.0" style="-fx-background-color: #bdc3c7;">
+               <children>
+                  <Label fx:id="Student_s" alignment="CENTER" contentDisplay="CENTER" prefHeight="50.0" text="Student-ID : 653380xxx-x            FirstName : Mr. xxxx                     LastName : xxxxxx">
+                     <font>
+                        <Font name="Arial" size="24.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <Separator prefHeight="30.0" />
+            <TableView fx:id="table_course" prefWidth="980.0">
+              <columns>
+                <TableColumn fx:id="C_ID" prefWidth="100.0" text="C_ID" />
+                <TableColumn fx:id="ID_Course" prefWidth="150.0" text="ID-course" />
+                  <TableColumn fx:id="Thai_name" prefWidth="150.0" text="Thai-name" />
+                  <TableColumn fx:id="Eng_name" prefWidth="150.0" text="Eng-name" />
+                  <TableColumn fx:id="belong" prefWidth="100.0" text="belong" />
+              </columns>
+            </TableView>
+         </children>
+      </VBox>
+   </center>
+</BorderPane>

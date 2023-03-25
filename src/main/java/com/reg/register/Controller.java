@@ -1,21 +1,15 @@
 package com.reg.register;
 
 import javafx.collections.FXCollections;
-import javafx.collections.ObservableArray;
 import javafx.collections.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.net.URL;
-import java.sql.SQLException;
-import java.util.ResourceBundle;
 
 public class Controller{
     @FXML
@@ -46,7 +40,8 @@ public class Controller{
     private void setSubmit(ActionEvent actionEvent) throws IOException{
         boolean c = true;
         ConnectDB connectDB = new ConnectDB();
-        var user = connectDB.getdata();
+        var user = connectDB.getDataUser();
+        var dataCourse = connectDB.getDataCourse();
         for (var e:
              user) {
             if (username.getText().equals(e.getStu_id()) && password.getText().equals(e.getPassword())){
@@ -59,6 +54,7 @@ public class Controller{
                     stage.show();
                     AdminController adminController = loader.getController();
                     adminController.setData(user);
+                    adminController.setAdmin(e);
                 }else {
                     loader = new FXMLLoader(getClass().getResource("course.fxml"));
                     scene = new Scene(loader.load(), 1280, 720);
@@ -67,6 +63,7 @@ public class Controller{
                     stage.show();
                     UserConntroller userConntroller = loader.getController();
                     userConntroller.setDate(e);
+                    userConntroller.setDataCourses(dataCourse);
                 }
             }
         }
