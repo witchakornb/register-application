@@ -56,14 +56,14 @@ public class Controller{
                     adminController.setData(user);
                     adminController.setAdmin(e);
                 }else {
-                    loader = new FXMLLoader(getClass().getResource("course.fxml"));
+                    loader = new FXMLLoader(getClass().getResource("course01.fxml"));
                     scene = new Scene(loader.load(), 1280, 720);
                     stage.setTitle("register application");
                     stage.setScene(scene);
                     stage.show();
                     UserConntroller userConntroller = loader.getController();
                     userConntroller.setDate(e);
-                    userConntroller.setDataCourses(dataCourse);
+//                    userConntroller.setDataCourses(dataCourse);
                 }
             }
         }

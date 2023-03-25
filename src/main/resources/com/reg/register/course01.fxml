@@ -7,12 +7,13 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.reg.register.UserConntroller01">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.reg.register.UserConntroller">
    <left>
       <VBox prefHeight="200.0" prefWidth="300.0" style="-fx-background-color: #5dade2;" BorderPane.alignment="CENTER">
          <children>
@@ -29,7 +30,7 @@
                </font>
             </Button>
             <Separator prefHeight="20.0" prefWidth="200.0" />
-            <Button mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" prefHeight="30.0" prefWidth="300.0" text="การลงทะเบียน">
+            <Button fx:id="next" onAction="#onNextButton" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" prefHeight="30.0" prefWidth="300.0" text="การลงทะเบียน">
                <font>
                   <Font name="Arial" size="24.0" />
                </font>
@@ -50,6 +51,16 @@
                   </Label>
                </children>
             </HBox>
+            <Separator prefHeight="30.0" />
+            <AnchorPane prefHeight="30.0">
+               <children>
+                  <Label layoutX="437.0" layoutY="1.0" text="รายวิชาที่ลง">
+                     <font>
+                        <Font name="Arial" size="24.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
             <Separator prefHeight="30.0" />
             <TableView fx:id="table_course" prefWidth="980.0">
               <columns>

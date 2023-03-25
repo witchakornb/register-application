@@ -38,7 +38,7 @@ public class ConnectDB {
             String sql = "SELECT * FROM user";
             ResultSet rs = statement.executeQuery(sql);
             while (rs.next()){
-                list.add(new User(rs.getString("student-id"), rs.getString("firstname"), rs.getString("lastname"), rs.getString("password"), rs.getString("gender"), rs.getString("address"), rs.getString("phone"), rs.getString("department"), rs.getString("role")));
+                list.add(new User(rs.getString("ID"), rs.getString( "student-id"), rs.getString("firstname"), rs.getString("lastname"), rs.getString("password"), rs.getString("gender"), rs.getString("address"), rs.getString("phone"), rs.getString("department"), rs.getString("role")));
             }
         }catch (Exception e){
             e.printStackTrace();
@@ -57,5 +57,21 @@ public class ConnectDB {
             e.printStackTrace();
         }
         return courses;
+    }
+    public ObservableList<Enroll> getDataEnrolls(){
+        ObservableList<Enroll> enrolls = FXCollections.observableArrayList();
+        try {
+            String sql = "SELECT * FROM enroll";
+            ResultSet resultSet = statement.executeQuery(sql);
+            while (resultSet.next()){
+                enrolls.add(new Enroll(resultSet.getString("E_ID"), resultSet.getString("student_ID"), resultSet.getString("course_ID")));
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+
+
+        return enrolls;
     }
 }

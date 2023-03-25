@@ -3,6 +3,7 @@ package com.reg.register;
 import javafx.beans.property.SimpleStringProperty;
 
 public class User {
+    private SimpleStringProperty ID;
     private SimpleStringProperty stu_id;
     private SimpleStringProperty firstname;
     private SimpleStringProperty lastname;
@@ -13,7 +14,8 @@ public class User {
     private SimpleStringProperty department;
     private SimpleStringProperty role;
 
-    public User(String stu_id, String firstname, String lastname, String password, String gender, String address, String phone, String department, String role) {
+    public User(String ID, String stu_id, String firstname, String lastname, String password, String gender, String address, String phone, String department, String role) {
+        this.ID = new SimpleStringProperty(ID);
         this.stu_id = new SimpleStringProperty(stu_id);
         this.firstname = new SimpleStringProperty(firstname);
         this.lastname = new SimpleStringProperty(lastname);
@@ -23,6 +25,18 @@ public class User {
         this.phone = new SimpleStringProperty(phone);
         this.department = new SimpleStringProperty(department);
         this.role = new SimpleStringProperty(role);
+    }
+
+    public String getID() {
+        return ID.get();
+    }
+
+    public SimpleStringProperty IDProperty() {
+        return ID;
+    }
+
+    public void setID(String ID) {
+        this.ID.set(ID);
     }
 
     public String getPassword() {
