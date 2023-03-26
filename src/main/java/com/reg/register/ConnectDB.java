@@ -32,13 +32,19 @@ public class ConnectDB {
             e.printStackTrace();
         }
     }
+    public Statement getStm(){
+        return  statement;
+    }
+    public Connection getConnection(){
+        return connection;
+    }
     public ObservableList<User> getDataUser(){
         ObservableList<User> list = FXCollections.observableArrayList();
         try{
             String sql = "SELECT * FROM user";
             ResultSet rs = statement.executeQuery(sql);
             while (rs.next()){
-                list.add(new User(rs.getString("ID"), rs.getString( "student-id"), rs.getString("firstname"), rs.getString("lastname"), rs.getString("password"), rs.getString("gender"), rs.getString("address"), rs.getString("phone"), rs.getString("department"), rs.getString("role")));
+                list.add(new User(rs.getString("ID"), rs.getString( "student_id"), rs.getString("firstname"), rs.getString("lastname"), rs.getString("password"), rs.getString("gender"), rs.getString("address"), rs.getString("phone"), rs.getString("department"), rs.getString("role")));
             }
         }catch (Exception e){
             e.printStackTrace();
@@ -51,12 +57,25 @@ public class ConnectDB {
             String sql = "SELECT * FROM course";
             ResultSet resultSet = statement.executeQuery(sql);
             while (resultSet.next()){
-                courses.add(new Course(resultSet.getString("C_ID"), resultSet.getString("ID-course"), resultSet.getString("Thai-name"), resultSet.getString("Eng-name"), resultSet.getString("belong")));
+                courses.add(new Course(resultSet.getString("C_ID"), resultSet.getString("ID_course"), resultSet.getString("Thai_name"), resultSet.getString("Eng_name"), resultSet.getString("belong")));
             }
         }catch (Exception e){
             e.printStackTrace();
         }
         return courses;
+    }
+    public ObservableList<String> getDataDepartments(){
+        ObservableList<String> departments = FXCollections.observableArrayList();
+        try {
+            String sql = "SELECT * FROM department";
+            ResultSet resultSet = statement.executeQuery(sql);
+            while (resultSet.next()){
+                departments.add(resultSet.getString("name"));
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return departments;
     }
     public ObservableList<Enroll> getDataEnrolls(){
         ObservableList<Enroll> enrolls = FXCollections.observableArrayList();
@@ -69,9 +88,20 @@ public class ConnectDB {
         }catch (Exception e){
             e.printStackTrace();
         }
-
-
-
         return enrolls;
+    }
+    public ObservableList<String> getFaculties(){
+        ObservableList<String> list = FXCollections.observableArrayList();
+        try {
+            String sql = "SELECT * FROM Faculties";
+            ResultSet resultSet = statement.executeQuery(sql);
+            while (resultSet.next()){
+                list.add(resultSet.getString("name"));
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+        return list;
     }
 }

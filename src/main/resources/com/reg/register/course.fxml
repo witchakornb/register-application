@@ -7,12 +7,13 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.reg.register.UserConntroller01">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.reg.register.EnrollController">
    <left>
       <VBox prefHeight="200.0" prefWidth="300.0" style="-fx-background-color: #5dade2;" BorderPane.alignment="CENTER">
          <children>
@@ -29,7 +30,19 @@
                </font>
             </Button>
             <Separator prefHeight="20.0" prefWidth="200.0" />
-            <Button mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" prefHeight="30.0" prefWidth="300.0" text="การลงทะเบียน">
+            <Button fx:id="back01" onAction="#onBackButton" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" prefHeight="30.0" prefWidth="300.0" text="การลงทะเบียน">
+               <font>
+                  <Font name="Arial" size="24.0" />
+               </font>
+            </Button>
+            <Separator prefHeight="20.0" prefWidth="200.0" />
+            <Button fx:id="next01" onAction="#setButtonNext01" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" prefHeight="30.0" prefWidth="300.0" text="รายวิชาที่เปิดสอน">
+               <font>
+                  <Font name="Arial" size="24.0" />
+               </font>
+            </Button>
+            <Separator prefHeight="20.0" prefWidth="200.0" />
+            <Button mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" prefHeight="30.0" prefWidth="300.0" text="ยืนยันการลงทะเบียน">
                <font>
                   <Font name="Arial" size="24.0" />
                </font>
@@ -51,15 +64,39 @@
                </children>
             </HBox>
             <Separator prefHeight="30.0" />
+            <AnchorPane prefHeight="30.0">
+               <children>
+                  <Label layoutX="400.0" layoutY="1.0" text="ยืนยันการลงทะเบียน">
+                     <font>
+                        <Font name="Arial" size="24.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+            <Separator prefHeight="30.0" />
             <TableView fx:id="table_course" prefWidth="980.0">
               <columns>
-                <TableColumn fx:id="C_ID" prefWidth="100.0" text="C_ID" />
-                <TableColumn fx:id="ID_Course" prefWidth="150.0" text="ID-course" />
+                  <TableColumn fx:id="ID_Course" prefWidth="150.0" text="ID_Course" />
                   <TableColumn fx:id="Thai_name" prefWidth="150.0" text="Thai-name" />
                   <TableColumn fx:id="Eng_name" prefWidth="150.0" text="Eng-name" />
                   <TableColumn fx:id="belong" prefWidth="100.0" text="belong" />
               </columns>
             </TableView>
+            <Separator prefHeight="10.0" prefWidth="200.0" />
+            <AnchorPane prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Button fx:id="submit" onAction="#setSubmit" layoutX="351.0" layoutY="25.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #3bb143;" text="Submit" textFill="WHITE">
+                     <font>
+                        <Font name="Arial" size="18.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="cancel" onAction="#setCancel" layoutX="531.0" layoutY="25.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #d3341f;" text="Cancel" textFill="WHITE">
+                     <font>
+                        <Font name="Arial" size="18.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
          </children>
       </VBox>
    </center>

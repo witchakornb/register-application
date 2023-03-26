@@ -23,8 +23,6 @@
             <TableColumn fx:id="phone" prefWidth="90.0" text="Phone" />
             <TableColumn fx:id="department" text="department" />
             <TableColumn fx:id="role" text="role" />
-            <TableColumn prefWidth="75.0" text="Column X" />
-            <TableColumn prefWidth="75.0" text="Column X" />
         </columns>
       </TableView>
    </center>
@@ -32,7 +30,19 @@
       <VBox prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #5dade2;" BorderPane.alignment="CENTER">
          <children>
             <Separator prefHeight="20.0" prefWidth="200.0" />
-            <Button fx:id="back" onAction="#onBackButton" mnemonicParsing="false" prefWidth="200.0" text="Back">
+            <Button fx:id="back" mnemonicParsing="false" onAction="#onBackButton" prefWidth="200.0" text="Back">
+               <font>
+                  <Font name="Arial" size="24.0" />
+               </font>
+            </Button>
+            <Separator prefHeight="20.0" prefWidth="200.0" />
+            <Button fx:id="next" onAction="#onNextButton" mnemonicParsing="false" prefWidth="200.0" text="AddStudent">
+               <font>
+                  <Font name="Arial" size="24.0" />
+               </font>
+            </Button>
+            <Separator prefHeight="20.0" prefWidth="200.0" />
+            <Button fx:id="next01" onAction="#onNextButton01" mnemonicParsing="false" prefWidth="200.0" text="AddCourse">
                <font>
                   <Font name="Arial" size="24.0" />
                </font>

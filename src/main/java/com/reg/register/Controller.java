@@ -53,16 +53,16 @@ public class Controller{
                     stage.setScene(scene);
                     stage.show();
                     AdminController adminController = loader.getController();
-                    adminController.setData(user);
+//                    adminController.setData(user);
                     adminController.setAdmin(e);
                 }else {
-                    loader = new FXMLLoader(getClass().getResource("course01.fxml"));
+                    loader = new FXMLLoader(getClass().getResource("Home_user.fxml"));
                     scene = new Scene(loader.load(), 1280, 720);
                     stage.setTitle("register application");
                     stage.setScene(scene);
                     stage.show();
-                    UserConntroller userConntroller = loader.getController();
-                    userConntroller.setDate(e);
+                    HomeController homeController = loader.getController();
+                    homeController.setDate(e);
 //                    userConntroller.setDataCourses(dataCourse);
                 }
             }

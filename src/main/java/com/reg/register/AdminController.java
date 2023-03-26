@@ -1,5 +1,6 @@
 package com.reg.register;
 
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -11,19 +12,25 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class AdminController implements Initializable {
+    ConnectDB connectDB = new ConnectDB();
     FXMLLoader loader;
     Scene scene;
     Stage stage = new Stage();
-    private ObservableList<User> listM;
+    private ObservableList<User> listM = FXCollections.observableArrayList();
     private User admin;
     @FXML
     private Button back;
+    @FXML
+    private Button next;
+    @FXML
+    private Button next01;
     @FXML
     private TableColumn<User, String> address = new TableColumn<>();
 
@@ -51,13 +58,11 @@ public class AdminController implements Initializable {
     private TableView<User> tableView;
     @FXML
     private Label AdminLabel;
-    public void setData(ObservableList<User> data){
-        this.listM = data;
-        tableView.setItems(listM);
-    }
     public void setAdmin(User user){
         this.admin = user;
         AdminLabel.setText("Admin ID : " +  this.admin.getStu_id() + "\t Name : " + this.admin.getFirstname() + " " + this.admin.getLastname());
+        listM = connectDB.getDataUser();
+        tableView.setItems(listM);
     }
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -76,9 +81,34 @@ public class AdminController implements Initializable {
         scene = new Scene(loader.load(), 1280, 720);
         stage.setTitle("register application");
         stage.setScene(scene);
+        stage.initStyle(StageStyle.UNDECORATED);
         stage.show();
         Controller controller = loader.getController();
         Stage stage2 = (Stage) back.getScene().getWindow();
+        stage2.close();
+    }
+    @FXML
+    protected void onNextButton() throws IOException {
+        loader = new FXMLLoader(getClass().getResource("add_Student.fxml"));
+        scene = new Scene(loader.load(), 1280, 720);
+        stage.setTitle("register application");
+        stage.setScene(scene);
+        stage.show();
+        AddStudentController addStudentController = loader.getController();
+        addStudentController.setUser(admin);
+        Stage stage2 = (Stage) next.getScene().getWindow();
+        stage2.close();
+    }
+    @FXML
+    protected void onNextButton01() throws IOException {
+        loader = new FXMLLoader(getClass().getResource("add_course.fxml"));
+        scene = new Scene(loader.load(), 1280, 720);
+        stage.setTitle("register application");
+        stage.setScene(scene);
+        stage.show();
+        AddCourseController addCourseController = loader.getController();
+        addCourseController.setUser(admin);
+        Stage stage2 = (Stage) next.getScene().getWindow();
         stage2.close();
     }
 }

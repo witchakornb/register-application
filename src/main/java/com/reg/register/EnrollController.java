@@ -12,20 +12,32 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
-public class UserConntroller implements Initializable {
+public class EnrollController implements Initializable {
     FXMLLoader loader;
+    ConnectDB connectDB = new ConnectDB();
     Scene scene;
     Stage stage = new Stage();
-    private ObservableList<Course> courses;
-    private ObservableList<Enroll> enrolls;
     private ObservableList<Course> courses2 = FXCollections.observableArrayList();
+    private User user;
     @FXML
-    private TableColumn<User, String> C_ID = new TableColumn<>();
+    Label Student_s;
+    @FXML
+    Button submit;
+    @FXML
+    Button cancel;
+    @FXML
+    Button next01;
+    @FXML
+    Button back;
+    @FXML
+    Button back01;
     @FXML
     private TableColumn<User, String> ID_Course = new TableColumn<>();
     @FXML
@@ -36,68 +48,74 @@ public class UserConntroller implements Initializable {
     private TableColumn<User, String> belong = new TableColumn<>();
     @FXML
     private TableView<Course> table_course;
-    @FXML
-    Label Student_s;
-    @FXML
-    Button back;
-    @FXML
-    Button next;
-    private User user;
-    private void connectData(){
-        ConnectDB connectDB = new ConnectDB();
-        enrolls = connectDB.getDataEnrolls();
-        courses = connectDB.getDataCourse();
-        for (var e:
-             enrolls) {
-            if (e.getStudent_ID().equals(user.getStu_id())){
-                for (var x:
-                        courses) {
-                    if (e.getCourse_ID().equals(x.getId_course())){
-                        courses2.add(x);
-                    }
-                }
-            }
-        }
-        table_course.setItems(courses2);
-    }
     public void setDate(User user){
         this.user = user;
         Student_s.setText("Student-ID : " + this.user.getStu_id() +  "\t FirstName : " + this.user.getFirstname() + "\t LastName : " + this.user.getLastname());
-        connectData();
     }
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        C_ID.setCellValueFactory(new PropertyValueFactory<>("c_id"));
         ID_Course.setCellValueFactory(new PropertyValueFactory<>("id_course"));
         Thai_name.setCellValueFactory(new PropertyValueFactory<>("thaiName"));
         Eng_name.setCellValueFactory(new PropertyValueFactory<>("engName"));
         belong.setCellValueFactory(new PropertyValueFactory<>("belong"));
     }
     public void setDataCourses(ObservableList<Course> courses){
+        courses2 = courses;
+        table_course.setItems(courses2);
     }
     @FXML
-    protected void onBackButton() throws IOException {
-        loader = new FXMLLoader(getClass().getResource("view.fxml"));
+    private void setSubmit(){
+        if (courses2 != null){
+            var stmt = connectDB.getStm();
+            try {
+                for (var e:
+                        courses2) {
+                    String sql = "INSERT INTO enroll (student_ID, course_ID) VALUES ('" + user.getStu_id() + "', '" + e.getId_course() +"')";
+                    stmt.executeUpdate(sql);
+                    setCancel();
+                }
+            }catch (SQLException e) {
+                e.printStackTrace();} finally {
+                try {
+                    if (stmt != null) {
+                        stmt.close();
+                    }
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+    @FXML
+    private void setCancel(){
+        courses2 = null;
+        table_course.setItems(courses2);
+        courses2 = FXCollections.observableArrayList();
+    }
+    @FXML
+    protected void setButtonNext01() throws IOException {
+        loader = new FXMLLoader(getClass().getResource("course01.fxml"));
         scene = new Scene(loader.load(), 1280, 720);
         stage.setTitle("register application");
         stage.setScene(scene);
         stage.show();
-        Controller controller = loader.getController();
-        Stage stage2 = (Stage) back.getScene().getWindow();
+        UserController01 userController01 = loader.getController();
+        userController01.setDate(this.user);
+        userController01.setCourses2(courses2);
+        Stage stage2 = (Stage) next01.getScene().getWindow();
         stage2.close();
     }
     @FXML
-    protected void onNextButton() throws IOException {
-        loader = new FXMLLoader(getClass().getResource("course.fxml"));
+    protected void onBackButton() throws IOException {
+        loader = new FXMLLoader(getClass().getResource("course02.fxml"));
         scene = new Scene(loader.load(), 1280, 720);
         stage.setTitle("register application");
         stage.setScene(scene);
         stage.show();
-        UserConntroller01 userConntroller01 = loader.getController();
-        userConntroller01.setTable();
-        userConntroller01.setDate(user);
-        Stage stage2 = (Stage) next.getScene().getWindow();
+        UserController userController = loader.getController();
+        userController.setDate(user);
+        userController.setDataCourses(courses2);
+        Stage stage2 = (Stage) back.getScene().getWindow();
         stage2.close();
     }
 }

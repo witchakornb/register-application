@@ -13,12 +13,12 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.reg.register.UserConntroller">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.reg.register.UserController01">
    <left>
       <VBox prefHeight="200.0" prefWidth="300.0" style="-fx-background-color: #5dade2;" BorderPane.alignment="CENTER">
          <children>
             <Separator prefHeight="20.0" prefWidth="200.0" />
-            <Button fx:id="back" onAction="#onBackButton" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" prefHeight="30.0" prefWidth="300.0" text="Back">
+            <Button fx:id="back" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#onBackButton" prefHeight="30.0" prefWidth="300.0" text="Back">
                <graphic>
                   <ImageView fitHeight="30.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -30,7 +30,19 @@
                </font>
             </Button>
             <Separator prefHeight="20.0" prefWidth="200.0" />
-            <Button fx:id="next" onAction="#onNextButton" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" prefHeight="30.0" prefWidth="300.0" text="การลงทะเบียน">
+            <Button fx:id="back01" onAction="#onBackButton" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" prefHeight="30.0" prefWidth="300.0" text="การลงทะเบียน">
+               <font>
+                  <Font name="Arial" size="24.0" />
+               </font>
+            </Button>
+            <Separator prefHeight="20.0" prefWidth="200.0" />
+            <Button mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" prefHeight="30.0" prefWidth="300.0" text="รายวิชาที่เปิดสอน">
+               <font>
+                  <Font name="Arial" size="24.0" />
+               </font>
+            </Button>
+            <Separator prefHeight="20.0" prefWidth="200.0" />
+            <Button fx:id="next02" onAction="#setButtonNext02" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" prefHeight="30.0" prefWidth="300.0" text="ยืนยันการลงทะเบียน">
                <font>
                   <Font name="Arial" size="24.0" />
                </font>
@@ -54,7 +66,7 @@
             <Separator prefHeight="30.0" />
             <AnchorPane prefHeight="30.0">
                <children>
-                  <Label layoutX="437.0" layoutY="1.0" text="รายวิชาที่ลง">
+                  <Label layoutX="411.0" layoutY="3.0" text="รายวิชาที่เปิดสอน">
                      <font>
                         <Font name="Arial" size="24.0" />
                      </font>
@@ -64,13 +76,21 @@
             <Separator prefHeight="30.0" />
             <TableView fx:id="table_course" prefWidth="980.0">
               <columns>
-                <TableColumn fx:id="C_ID" prefWidth="100.0" text="C_ID" />
-                <TableColumn fx:id="ID_Course" prefWidth="150.0" text="ID-course" />
+                  <TableColumn fx:id="ID_Course" prefWidth="150.0" text="ID_Course" />
                   <TableColumn fx:id="Thai_name" prefWidth="150.0" text="Thai-name" />
                   <TableColumn fx:id="Eng_name" prefWidth="150.0" text="Eng-name" />
                   <TableColumn fx:id="belong" prefWidth="100.0" text="belong" />
               </columns>
             </TableView>
+            <AnchorPane prefWidth="200.0">
+               <children>
+                  <Button fx:id="add" onAction="#setAdd" layoutX="844.0" layoutY="29.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #3bb143;" text="Add" textFill="WHITE">
+                     <font>
+                        <Font name="Arial" size="24.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
          </children>
       </VBox>
    </center>
