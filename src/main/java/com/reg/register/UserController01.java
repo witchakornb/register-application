@@ -24,13 +24,13 @@ public class UserController01 implements Initializable {
     private ObservableList<Course> courses2;
     private ObservableList<Enroll> enrolls;
     @FXML
-    private TableColumn<User, String> ID_Course = new TableColumn<>();
+    private TableColumn<Course, String> ID_Course = new TableColumn<>();
     @FXML
-    private TableColumn<User, String> Thai_name = new TableColumn<>();
+    private TableColumn<Course, String> Thai_name = new TableColumn<>();
     @FXML
-    private TableColumn<User, String> Eng_name = new TableColumn<>();
+    private TableColumn<Course, String> Eng_name = new TableColumn<>();
     @FXML
-    private TableColumn<User, String> belong = new TableColumn<>();
+    private TableColumn<Course, String> belong = new TableColumn<>();
     @FXML
     private TableView<Course> table_course;
     @FXML

@@ -28,13 +28,13 @@ public class HomeController implements Initializable {
     private ObservableList<Course> courses;
     private ObservableList<Course> courses_user = FXCollections.observableArrayList();
     @FXML
-    private TableColumn<User, String> ID_Course = new TableColumn<>();
+    private TableColumn<Course, String> ID_Course = new TableColumn<>();
     @FXML
-    private TableColumn<User, String> Thai_name = new TableColumn<>();
+    private TableColumn<Course, String> Thai_name = new TableColumn<>();
     @FXML
-    private TableColumn<User, String> Eng_name = new TableColumn<>();
+    private TableColumn<Course, String> Eng_name = new TableColumn<>();
     @FXML
-    private TableColumn<User, String> belong = new TableColumn<>();
+    private TableColumn<Course, String> belong = new TableColumn<>();
     @FXML
     private TableView<Course> table_course;
     @FXML
@@ -43,6 +43,9 @@ public class HomeController implements Initializable {
     Button next;
     @FXML
     Label Student_s;
+    @FXML
+    Button view;
+    Integer index;
     private User user;
 
     public void setDate(User user){
@@ -78,7 +81,6 @@ public class HomeController implements Initializable {
         scene = new Scene(loader.load(), 1280, 720);
         stage.setTitle("register application");
         stage.setScene(scene);
-        stage.initStyle(StageStyle.UNDECORATED);
         stage.show();
         UserController userController = loader.getController();
         userController.setDate(user);
@@ -91,5 +93,22 @@ public class HomeController implements Initializable {
         Thai_name.setCellValueFactory(new PropertyValueFactory<>("thaiName"));
         Eng_name.setCellValueFactory(new PropertyValueFactory<>("engName"));
         belong.setCellValueFactory(new PropertyValueFactory<>("belong"));
+    }
+    @FXML
+    private void getTable() throws IOException {
+        index = table_course.getSelectionModel().getSelectedIndex();
+        if (index < 0){
+            return;
+        }
+        loader = new FXMLLoader(getClass().getResource("view01.fxml"));
+        scene = new Scene(loader.load(), 1280, 720);
+        stage.setTitle("register application");
+        stage.setScene(scene);
+        stage.show();
+        ViewContronlloer viewContronlloer = loader.getController();
+        viewContronlloer.setUser(user);
+        viewContronlloer.setC_ID(ID_Course.getCellData(index).toString());
+        Stage stage2 = (Stage) view.getScene().getWindow();
+        stage2.close();
     }
 }

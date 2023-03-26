@@ -25,7 +25,6 @@ public class ConnectDB {
     private void connect(){
         try {
             Class.forName("org.mariadb.jdbc.Driver");
-            System.out.println("Connecting to a database...");
             connection = DriverManager.getConnection(DB_URL, username, password);
             statement = connection.createStatement();
         }catch (Exception e) {

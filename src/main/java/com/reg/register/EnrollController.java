@@ -39,13 +39,13 @@ public class EnrollController implements Initializable {
     @FXML
     Button back01;
     @FXML
-    private TableColumn<User, String> ID_Course = new TableColumn<>();
+    private TableColumn<Course, String> ID_Course = new TableColumn<>();
     @FXML
-    private TableColumn<User, String> Thai_name = new TableColumn<>();
+    private TableColumn<Course, String> Thai_name = new TableColumn<>();
     @FXML
-    private TableColumn<User, String> Eng_name = new TableColumn<>();
+    private TableColumn<Course, String> Eng_name = new TableColumn<>();
     @FXML
-    private TableColumn<User, String> belong = new TableColumn<>();
+    private TableColumn<Course, String> belong = new TableColumn<>();
     @FXML
     private TableView<Course> table_course;
     public void setDate(User user){
