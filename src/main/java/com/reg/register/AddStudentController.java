@@ -95,8 +95,10 @@ public class AddStudentController {
     }
     @FXML
     protected void onButtonSubmit() throws SQLException {
+        lable.setText("Add Student");
         PreparedStatement statement1 = null;
-        if (student_ID != null && firstname != null && lastname != null && phone != null && password != null && address != null && s_gender != null && s_departments != null && s_role != null){
+        if ((!student_ID.getText().equals("")) && (!firstname.getText().equals("")) && (!lastname.getText().equals("")) && (!password.getText().equals("")) && (!address.getText().equals("")) && (s_gender != null) && (s_departments != null) && (s_role != null)){
+            System.out.println("inFunction");
             String sql = "INSERT INTO user (student_id, firstname, lastname, password, gender, address, phone, department, role) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
             statement1 = connectDB.getConnection().prepareStatement(sql);
             statement1.setString(1, student_ID.getText());

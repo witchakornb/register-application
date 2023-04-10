@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.reg.register.EditController">
+   <center>
+      <AnchorPane prefHeight="200.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="submit" layoutX="458.0" layoutY="653.0" mnemonicParsing="false" onAction="#onButtonSubmit" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: #3bb143;" text="Submit" textFill="WHITE">
+               <font>
+                  <Font name="Arial" size="18.0" />
+               </font>
+            </Button>
+            <Label fx:id="label" layoutX="508.0" layoutY="30.0" text="Edit Student">
+               <font>
+                  <Font name="Arial" size="24.0" />
+               </font>
+            </Label>
+            <Button fx:id="cancel" layoutX="591.0" layoutY="654.0" mnemonicParsing="false" onAction="#onButtonCancel" prefHeight="30.0" prefWidth="100.0" style="-fx-background-color: #d3341f;" text="Cancel" textFill="WHITE">
+               <font>
+                  <Font name="Arial" size="18.0" />
+               </font>
+            </Button>
+            <Label layoutX="329.0" layoutY="93.0" text="student-id">
+               <font>
+                  <Font name="Arial" size="24.0" />
+               </font>
+            </Label>
+            <TextField fx:id="student_ID" layoutX="477.0" layoutY="93.0" prefHeight="25.0" prefWidth="300.0" />
+            <Label layoutX="329.0" layoutY="140.0" text="firstname">
+               <font>
+                  <Font name="Arial" size="24.0" />
+               </font>
+            </Label>
+            <TextField fx:id="firstname" layoutX="477.0" layoutY="140.0" prefHeight="25.0" prefWidth="300.0" />
+            <Label layoutX="329.0" layoutY="185.0" text="lastname">
+               <font>
+                  <Font name="Arial" size="24.0" />
+               </font>
+            </Label>
+            <TextField fx:id="lastname" layoutX="477.0" layoutY="185.0" prefHeight="25.0" prefWidth="300.0" />
+            <Label layoutX="329.0" layoutY="232.0" text="password">
+               <font>
+                  <Font name="Arial" size="24.0" />
+               </font>
+            </Label>
+            <TextField fx:id="password" layoutX="477.0" layoutY="232.0" prefHeight="25.0" prefWidth="300.0" />
+            <Label layoutX="329.0" layoutY="273.0" text="gender">
+               <font>
+                  <Font name="Arial" size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="335.0" layoutY="347.0" text="address">
+               <font>
+                  <Font name="Arial" size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="329.0" layoutY="453.0" text="phone">
+               <font>
+                  <Font name="Arial" size="24.0" />
+               </font>
+            </Label>
+            <TextField fx:id="phone" layoutX="477.0" layoutY="453.0" prefHeight="25.0" prefWidth="300.0" />
+            <Label layoutX="329.0" layoutY="500.0" text="department">
+               <font>
+                  <Font name="Arial" size="24.0" />
+               </font>
+            </Label>
+            <Label layoutX="329.0" layoutY="543.0" text="role">
+               <font>
+                  <Font name="Arial" size="24.0" />
+               </font>
+            </Label>
+            <ComboBox fx:id="genderCombo" layoutX="477.0" layoutY="274.0" onAction="#ComboBoxSelectionGender" prefHeight="25.0" prefWidth="300.0" promptText="gender" />
+            <ComboBox fx:id="departmentsCombo" layoutX="477.0" layoutY="501.0" onAction="#ComboBoxSelectionDepartments" prefHeight="25.0" prefWidth="300.0" promptText="departments" />
+            <ComboBox fx:id="roleCombo" layoutX="477.0" layoutY="544.0" onAction="#ComboBoxSelectionRole" prefHeight="25.0" prefWidth="300.0" promptText="role" />
+            <TextArea fx:id="address" layoutX="477.0" layoutY="320.0" prefHeight="100.0" prefWidth="300.0" />
+         </children>
+      </AnchorPane>
+   </center>
+   <left>
+      <VBox prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #5dade2;" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="Back" mnemonicParsing="false" onAction="#onBackButton" prefHeight="40.0" prefWidth="200.0" text="Back">
+               <font>
+                  <Font name="Arial" size="18.0" />
+               </font>
+            </Button>
+            <Separator prefHeight="20.0" prefWidth="200.0" />
+         </children>
+      </VBox>
+   </left>
+</BorderPane>

@@ -68,7 +68,7 @@ public class AddCourseController implements Initializable {
     @FXML
     protected void onButtonSubmit() throws SQLException {
         PreparedStatement statement1 = null;
-        if (ID_course != null && thai_name != null && eng_name != null && belong01 != null){
+        if ((!ID_course.getText().equals("")) && (!thai_name.getText().equals("")) && (!eng_name.getText().equals("")) && belong01 != null){
             String sql = "INSERT INTO course (ID_course, thai_name, eng_name, belong) VALUES (?, ?, ?, ?)";
             statement1 = connectDB.getConnection().prepareStatement(sql);
             statement1.setString(1, ID_course.getText());

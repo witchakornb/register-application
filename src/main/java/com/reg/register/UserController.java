@@ -119,14 +119,19 @@ public class UserController implements Initializable {
     @FXML
     protected void setButtonSearch(ActionEvent actionEvent){
         String cc = search.getText();
+        Boolean c1 = true;
         connectData();
         for (var e:
              this.courses) {
             if (cc.equals(e.getId_course())){
                 searchlabel.setText(e.getThaiName());
                 courseF = e;
+                c1 = false;
                 break;
             }
+        }
+        if (c1){
+            searchlabel.setText("no course");
         }
         search.clear();
     }
@@ -158,13 +163,16 @@ public class UserController implements Initializable {
                     if (c1){
                         courses2.add(courseF);
                         table_course.setItems(courses2);
+                    }else {
+                        searchlabel.setText("Please select a course");
                     }
                 }
-                searchlabel.setText(" ");
+                searchlabel.setText("");
             }
         }else {
             searchlabel.setText("Please select a course");
         }
+        courseF = null;
     }
     @FXML
     protected void setButtonCancel(){
