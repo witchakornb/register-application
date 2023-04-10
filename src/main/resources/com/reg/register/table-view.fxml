@@ -13,7 +13,7 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.reg.register.AdminController">
    <center>
-      <TableView fx:id="tableView" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <TableView fx:id="tableView" onMouseClicked="#getItem" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
         <columns>
           <TableColumn fx:id="stu_id" prefWidth="130.0" text="Student-ID" />
           <TableColumn fx:id="firstname" minWidth="0.0" prefWidth="150.0" text="FirstName" />
@@ -36,13 +36,13 @@
                </font>
             </Button>
             <Separator prefHeight="20.0" prefWidth="200.0" />
-            <Button fx:id="next" onAction="#onNextButton" mnemonicParsing="false" prefWidth="200.0" text="AddStudent">
+            <Button fx:id="next" mnemonicParsing="false" onAction="#onNextButton" prefWidth="200.0" text="AddStudent">
                <font>
                   <Font name="Arial" size="24.0" />
                </font>
             </Button>
             <Separator prefHeight="20.0" prefWidth="200.0" />
-            <Button fx:id="next01" onAction="#onNextButton01" mnemonicParsing="false" prefWidth="200.0" text="AddCourse">
+            <Button fx:id="next01" mnemonicParsing="false" onAction="#onNextButton01" prefWidth="200.0" text="AddCourse">
                <font>
                   <Font name="Arial" size="24.0" />
                </font>
@@ -64,4 +64,20 @@
          </children>
       </HBox>
    </top>
+   <bottom>
+      <AnchorPane prefHeight="70.0" prefWidth="1280.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="Edit" onAction="#onEditButton" layoutX="959.0" layoutY="10.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #FFBF00;" text="Edit" textFill="WHITE">
+               <font>
+                  <Font name="Arial" size="18.0" />
+               </font>
+            </Button>
+            <Button fx:id="Delete" onAction="#Delete" layoutX="1130.0" layoutY="10.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="100.0" style="-fx-background-color: #FF0000;" text="Delete" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+   </bottom>
 </BorderPane>

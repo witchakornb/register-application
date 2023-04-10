@@ -46,6 +46,9 @@ public class AddCourseController implements Initializable {
         this.admin = user;
     }
     private String belong01;
+    private ObservableList<String> department = connectDB.getDataDepartments();
+    private ObservableList<String> gender = FXCollections.observableArrayList();
+    private ObservableList<String> role = FXCollections.observableArrayList();
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         stringComboBox.setItems(list);
@@ -83,7 +86,6 @@ public class AddCourseController implements Initializable {
         ID_course.clear();
         thai_name.clear();
         eng_name.clear();
-        belong01 = null;
         stringComboBox.cancelEdit();
     }
     @FXML

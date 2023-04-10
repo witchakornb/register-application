@@ -122,9 +122,6 @@ public class AddStudentController {
         password.clear();
         phone.clear();
         address.clear();
-        s_gender = null;
-        s_role = null;
-        s_departments = null;
         genderCombo.cancelEdit();
         departmentsCombo.cancelEdit();
         roleCombo.cancelEdit();

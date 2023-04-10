@@ -10,13 +10,12 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.reg.register.ViewContronlloer">
    <left>
       <VBox prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #5dade2;" BorderPane.alignment="CENTER">
          <children>
             <Separator prefHeight="20.0" prefWidth="200.0" />
-            <Button fx:id="Back" onAction="#onButtonBack" mnemonicParsing="false" prefHeight="30.0" prefWidth="200.0" text="Back" />
+            <Button fx:id="Back" mnemonicParsing="false" onAction="#onButtonBack" prefHeight="30.0" prefWidth="200.0" text="Back" />
          </children>
       </VBox>
    </left>
@@ -43,4 +42,8 @@
          </children>
       </VBox>
    </center>
+   <bottom>
+      <AnchorPane prefHeight="56.0" prefWidth="1280.0" BorderPane.alignment="CENTER">
+      </AnchorPane>
+   </bottom>
 </BorderPane>
